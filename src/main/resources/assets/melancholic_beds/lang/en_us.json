@@ -1,0 +1,25 @@
+{
+    "screen.melancholic_beds.config.title": "Melancholic Beds config",
+    "screen.melancholic_beds.config.sleeping_category_name": "Sleeping & Phantoms",
+    "screen.melancholic_beds.config.sleeping_category_tooltip": "Sleeping mechanics and phantoms spawn related settings",
+    "screen.melancholic_beds.config.beds_category_name": "Beds crafting",
+    "screen.melancholic_beds.config.beds_category_tooltip": "Settings related to how beds are crafted",
+    "screen.melancholic_beds.config.op_privileges_required_option": "This option cannot be changed because you don't have operator privileges on this server",
+    "screen.melancholic_beds.config.dependency_required_option": "This option cannot be changed while \"%s\" option is %s",
+    "screen.melancholic_beds.config.dependency_required_value_enabled": "enabled",
+    "screen.melancholic_beds.config.dependency_required_value_not_enabled": "not enabled",
+    "screen.melancholic_beds.config.dependency_required_value_not_set_to": "not set to \"%s\"",
+
+    "screen.melancholic_beds.config.option.sheepRequireShears.name": "Sheep require shears",
+    "screen.melancholic_beds.config.option.sheepRequireShears.description": "If enabled, sheep will only drop wool when shears are used",
+    "screen.melancholic_beds.config.option.disableWoolCrafting.name": "Disable wool crafting",
+    "screen.melancholic_beds.config.option.disableWoolCrafting.description": "If enabled, crafting recipe for wool from 4 strings will not be available",
+    "screen.melancholic_beds.config.option.enableNightmares.name": "Enable nightmares",
+    "screen.melancholic_beds.config.option.enableNightmares.description": "If enabled, nightmares mechanic will be activated",
+    "screen.melancholic_beds.config.option.disableSleeping.name": "Disable sleeping",
+    "screen.melancholic_beds.config.option.disableSleeping.description": "If enabled, sleeping will be impossible. Beds will only be used to set respawn point",
+    "screen.melancholic_beds.config.option.disableInsomnia.name": "Disable insomnia",
+    "screen.melancholic_beds.config.option.disableInsomnia.description": "If enabled, prevents phantoms from spawning after 3 sleepless nights",
+    "screen.melancholic_beds.config.option.spawnPhantomsInSwamps.name": "Spawn phantoms in swamps",
+    "screen.melancholic_beds.config.option.spawnPhantomsInSwamps.description": "If enabled, phantoms will spawn in swamps at night as regular enemies"
+}

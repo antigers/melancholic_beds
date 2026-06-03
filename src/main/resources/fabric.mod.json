@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "melancholic_beds",
+	"version": "${version}",
+	"name": "Melancholic Beds",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"antigers"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/melancholic_beds",
+		"sources": "https://github.com/antigers/melancholic_beds",
+		"issues": "https://github.com/antigers/melancholic_beds/issues"
+	},
+	"license": "LGPL-3.0",
+	"icon": "assets/melancholic_beds/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"antigers.melancholic_beds.MelancholicBeds"
+		],
+		"fabric-datagen": [
+			"antigers.melancholic_beds.datagen.MelancholicBedsDataGenerator"
+		],
+		"modmenu": [
+			"antigers.melancholic_beds.config.ModMenuScreen"
+		]
+	},
+	"mixins": [
+		"melancholic_beds.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~26.1",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
