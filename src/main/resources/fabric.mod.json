@@ -3,7 +3,7 @@
 	"id": "melancholic_beds",
 	"version": "${version}",
 	"name": "Melancholic Beds",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Provides options to modify how beds and phantoms work",
 	"authors": [
 		"antigers"
 	],
@@ -30,9 +30,10 @@
 		"melancholic_beds.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.18.4",
+		"fabricloader": "*",
 		"minecraft": "~26.1",
 		"java": ">=25",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"yet_another_config_lib_v3": "*"
 	}
 }

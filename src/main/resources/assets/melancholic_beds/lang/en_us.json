@@ -1,7 +1,7 @@
 {
     "screen.melancholic_beds.config.title": "Melancholic Beds config",
     "screen.melancholic_beds.config.sleeping_category_name": "Sleeping & Phantoms",
-    "screen.melancholic_beds.config.sleeping_category_tooltip": "Sleeping mechanics and phantoms spawn related settings",
+    "screen.melancholic_beds.config.sleeping_category_tooltip": "Settings related to sleeping and phantoms spawn mechanics",
     "screen.melancholic_beds.config.beds_category_name": "Beds crafting",
     "screen.melancholic_beds.config.beds_category_tooltip": "Settings related to how beds are crafted",
     "screen.melancholic_beds.config.op_privileges_required_option": "This option cannot be changed because you don't have operator privileges on this server",
