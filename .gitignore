@@ -40,3 +40,5 @@ replay_*.log
 *.jfr
 
 TODO.txt
+
+src/main/generated/.cache/
