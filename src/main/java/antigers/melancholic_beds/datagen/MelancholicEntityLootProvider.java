@@ -4,9 +4,6 @@ import antigers.melancholic_beds.Phantoms;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricEntityLootSubProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.loot.EntityLootSubProvider;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -27,7 +24,7 @@ public class MelancholicEntityLootProvider extends FabricEntityLootSubProvider {
 	@Override
 	public void generate() {
 		add(
-				Phantoms.MELANCHOLIC_PHANTOM,
+				Phantoms.PHANTOM_ENTITY_TYPE,
 				LootTable.lootTable()
 						.withPool(
 								LootPool.lootPool()

@@ -52,7 +52,7 @@ public class ChunkGeneratorMixin {
 		for (Weighted<MobSpawnSettings.SpawnerData> spawnerDataWeighted : result.unwrap()) {
 			resultBuilder.add(spawnerDataWeighted.value(), spawnerDataWeighted.weight());
 		}
-		resultBuilder.add(new MobSpawnSettings.SpawnerData(Phantoms.MELANCHOLIC_PHANTOM, 1, 4), 30);
+		resultBuilder.add(new MobSpawnSettings.SpawnerData(Phantoms.PHANTOM_ENTITY_TYPE, 1, 4), 30);
 		WeightedList<MobSpawnSettings.SpawnerData> extendedResult = resultBuilder.build();
 		extendedSpawners.put(biome, extendedResult);
 		return extendedResult;

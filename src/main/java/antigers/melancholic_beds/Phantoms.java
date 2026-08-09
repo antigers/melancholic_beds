@@ -15,13 +15,13 @@ import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 public class Phantoms {
-	private static final ResourceKey<EntityType<?>> PHANTOM_ID = ResourceKey.create(
+	public static final ResourceKey<EntityType<?>> PHANTOM_RESOURCE_KEY = ResourceKey.create(
 			Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(MelancholicBeds.MOD_ID, "phantom")
 	);
 
-	public static final EntityType<Phantom> MELANCHOLIC_PHANTOM = Registry.register(
+	public static final EntityType<Phantom> PHANTOM_ENTITY_TYPE = Registry.register(
 			BuiltInRegistries.ENTITY_TYPE,
-			PHANTOM_ID,
+			PHANTOM_RESOURCE_KEY,
 			FabricEntityType.Builder.createMob(Phantom::new, MobCategory.MONSTER, mob -> mob
 							.spawnPlacement(SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules)
 							.defaultAttributes(() -> Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 6.0D))
@@ -32,10 +32,10 @@ public class Phantoms {
 					.ridingOffset(-0.125F)
 					.clientTrackingRange(8)
 					.notInPeaceful()
-					.build(PHANTOM_ID)
+					.build(PHANTOM_RESOURCE_KEY)
 	);
 
 	public static void register() {
-		EntityRenderers.register(MELANCHOLIC_PHANTOM, PhantomRenderer::new);
+		EntityRenderers.register(PHANTOM_ENTITY_TYPE, PhantomRenderer::new);
 	}
 }

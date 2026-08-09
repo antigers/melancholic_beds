@@ -22,12 +22,12 @@ public class MelancholicRecipeProvider extends FabricRecipeProvider {
 		return new RecipeProvider(registryLookup, exporter) {
 			@Override
 			public void buildRecipes() {
-				shaped(RecipeCategory.BUILDING_BLOCKS, Blocks.WHITE_WOOL)
+				shaped(RecipeCategory.BUILDING_BLOCKS, Blocks.WOOL.white())
 						.define('#', Items.STRING)
 						.pattern("##")
 						.pattern("##")
 						.unlockedBy("has_string", this.has(Items.STRING))
-						.save(withConditions(output, new Recipes.WoolRecipeConfigCondition()), getConversionRecipeName(Blocks.WHITE_WOOL, Items.STRING));
+						.save(withConditions(output, new Recipes.WoolRecipeConfigCondition()), getConversionRecipeName(Blocks.WOOL.white(), Items.STRING));
 			}
 		};
 	}

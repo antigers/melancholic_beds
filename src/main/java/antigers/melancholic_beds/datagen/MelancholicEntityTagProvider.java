@@ -15,8 +15,8 @@ public class MelancholicEntityTagProvider extends FabricTagsProvider.EntityTypeT
 
 	@Override
 	protected void addTags(HolderLookup.Provider registries) {
-		valueLookupBuilder(EntityTypeTags.UNDEAD).add(Phantoms.MELANCHOLIC_PHANTOM);
-		valueLookupBuilder(EntityTypeTags.BURN_IN_DAYLIGHT).add(Phantoms.MELANCHOLIC_PHANTOM);
-		valueLookupBuilder(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(Phantoms.MELANCHOLIC_PHANTOM);
+		builder(EntityTypeTags.UNDEAD).add(Phantoms.PHANTOM_RESOURCE_KEY);
+		builder(EntityTypeTags.BURN_IN_DAYLIGHT).add(Phantoms.PHANTOM_RESOURCE_KEY);
+		builder(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(Phantoms.PHANTOM_RESOURCE_KEY);
 	}
 }

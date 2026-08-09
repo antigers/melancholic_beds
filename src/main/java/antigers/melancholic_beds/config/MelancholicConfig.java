@@ -99,7 +99,7 @@ public class MelancholicConfig {
                 .category(buildBedsCategory())
                 .save(() -> {
                     var client = Minecraft.getInstance();
-                    boolean isSinglePlayer = client.isSingleplayer();
+                    boolean isSinglePlayer = client.hasSingleplayerServer();
                     boolean hasSingleplayerServer = client.hasSingleplayerServer();
                     var player = client.player;
                     if (isSinglePlayer || player == null || hasSingleplayerServer) {
@@ -141,7 +141,7 @@ public class MelancholicConfig {
         if (ModLoader.isServerside()) {
             return;
         }
-        if (Minecraft.getInstance().screen instanceof YACLScreen) {
+        if (Minecraft.getInstance().gui.screen() instanceof YACLScreen) {
             ALL_OPTIONS.forEach(ConfigOption::forgetPendingValueIfServerOption);
         }
     }
