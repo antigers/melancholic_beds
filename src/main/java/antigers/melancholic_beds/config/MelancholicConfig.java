@@ -9,12 +9,11 @@ import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.gui.YACLScreen;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.gamerule.v1.GameRuleEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.level.gamerules.GameRules;
+import net.minecraft.world.level.GameRules;
 
 import javax.lang.model.type.NullType;
 import java.util.List;
@@ -27,7 +26,7 @@ public class MelancholicConfig {
     private static ServerConfigData serverData = new ServerConfigData();
 
     private static final ConfigClassHandler<MelancholicConfig> HANDLER = ConfigClassHandler.createBuilder(MelancholicConfig.class)
-            .id(Identifier.fromNamespaceAndPath(MelancholicBeds.MOD_ID, "config"))
+            .id(ResourceLocation.fromNamespaceAndPath(MelancholicBeds.MOD_ID, "config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(ModLoader.getConfigDir().resolve(MelancholicBeds.MOD_ID + ".json5"))
                     .setJson5(true)
@@ -93,7 +92,7 @@ public class MelancholicConfig {
     }
 
     public static YetAnotherConfigLib getYACLInstance() {
-        return YetAnotherConfigLib.create(HANDLER, (_, _, builder) -> builder
+        return YetAnotherConfigLib.create(HANDLER, (defaults, config, builder) -> builder
                 .title(Component.translatable(CONFIG_PREFIX + "title"))
                 .category(buildSleepingCategory())
                 .category(buildBedsCategory())
@@ -125,8 +124,8 @@ public class MelancholicConfig {
 
     private static void syncSpawnPhantomsGameRule(MinecraftServer server) {
         boolean spawnPhantoms = !serverData.disableInsomnia;
-        if (server.getGameRules().get(GameRules.SPAWN_PHANTOMS) != spawnPhantoms) {
-            server.getGameRules().set(GameRules.SPAWN_PHANTOMS, spawnPhantoms, server);
+        if (server.getGameRules().getBoolean(GameRules.RULE_DOINSOMNIA) != spawnPhantoms) {
+            server.getGameRules().getRule(GameRules.RULE_DOINSOMNIA).set(spawnPhantoms, server);
         }
     }
 
@@ -156,7 +155,8 @@ public class MelancholicConfig {
         }
         isLoadedFromDisk = true;
         ServerLifecycleEvents.SERVER_STARTED.register(MelancholicConfig::syncSpawnPhantomsGameRule);
-        GameRuleEvents.changeCallback(GameRules.SPAWN_PHANTOMS).register((newValue, _) -> onSpawnPhantomsGameRuleChange(newValue));
+        // There is no gamerule change event in 1.21.1. This has to be done through mixins
+//        GameRuleEvents.changeCallback(GameRules.SPAWN_PHANTOMS).register((newValue, _) -> onSpawnPhantomsGameRuleChange(newValue));
     }
 
     public static void saveToDisk() {

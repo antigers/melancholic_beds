@@ -42,7 +42,7 @@ public class Sleeping {
 	}
 
 	public static void register() {
-		EntitySleepEvents.ALLOW_SLEEPING.register(((player, _) -> {
+		EntitySleepEvents.ALLOW_SLEEPING.register(((player, sleepingPos) -> {
 			boolean isPrevented = handlePreventSleeping(player);
 			return isPrevented ? Player.BedSleepingProblem.OTHER_PROBLEM : null;
 		}));

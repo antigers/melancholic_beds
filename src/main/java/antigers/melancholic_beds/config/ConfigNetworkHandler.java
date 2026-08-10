@@ -8,8 +8,6 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.permissions.Permission;
-import net.minecraft.server.permissions.PermissionLevel;
 
 public class ConfigNetworkHandler {
     private static MinecraftServer SERVER_INSTANCE;
@@ -36,7 +34,7 @@ public class ConfigNetworkHandler {
     }
 
     private static void handleC2SPacket(ServerConfigData.ImmutableServerConfigData data, ServerPlayer player) {
-        if (!player.permissions().hasPermission(new Permission.HasCommandLevel(PermissionLevel.GAMEMASTERS))) {
+        if (!player.hasPermissions(2)) {
             // only for operators
             return;
         }
@@ -57,12 +55,12 @@ public class ConfigNetworkHandler {
     }
 
     public static void register() {
-        PayloadTypeRegistry.clientboundPlay().register(ServerConfigData.PAYLOAD_TYPE, ServerConfigData.PAYLOAD_STREAM_CODEC);
+        PayloadTypeRegistry.playS2C().register(ServerConfigData.PAYLOAD_TYPE, ServerConfigData.PAYLOAD_STREAM_CODEC);
         ClientPlayNetworking.registerGlobalReceiver(
-                ServerConfigData.PAYLOAD_TYPE, (data, _) -> handleS2CPacket(data)
+                ServerConfigData.PAYLOAD_TYPE, (data, context) -> handleS2CPacket(data)
         );
 
-        PayloadTypeRegistry.serverboundPlay().register(ServerConfigData.PAYLOAD_TYPE, ServerConfigData.PAYLOAD_STREAM_CODEC);
+        PayloadTypeRegistry.playC2S().register(ServerConfigData.PAYLOAD_TYPE, ServerConfigData.PAYLOAD_STREAM_CODEC);
         ServerPlayNetworking.registerGlobalReceiver(
                 ServerConfigData.PAYLOAD_TYPE, (data, context) -> handleC2SPacket(data, context.player())
         );
@@ -70,7 +68,7 @@ public class ConfigNetworkHandler {
         ServerLifecycleEvents.SERVER_STARTED.register(server -> SERVER_INSTANCE = server);
         // syncing server config to the player after they join the server
         ServerPlayConnectionEvents.JOIN.register(
-                (_, sender, _) -> sender.sendPacket(MelancholicConfig.getServerData())
+                (handler, sender, server) -> sender.sendPacket(MelancholicConfig.getServerData())
         );
     }
 }

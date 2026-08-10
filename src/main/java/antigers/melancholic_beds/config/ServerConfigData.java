@@ -6,7 +6,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 public class ServerConfigData {
     public Boolean sheepRequireShears;
@@ -17,7 +17,7 @@ public class ServerConfigData {
     public Boolean spawnPhantomsInSwamps;
 
     public static final CustomPacketPayload.Type<ImmutableServerConfigData> PAYLOAD_TYPE = new CustomPacketPayload.Type<>(
-            Identifier.fromNamespaceAndPath(MelancholicBeds.MOD_ID, "server_config_component")
+            ResourceLocation.fromNamespaceAndPath(MelancholicBeds.MOD_ID, "server_config_component")
     );
     public static final StreamCodec<ByteBuf, ImmutableServerConfigData> PAYLOAD_STREAM_CODEC = StreamCodec.composite(
             ByteBufCodecs.STRING_UTF8,

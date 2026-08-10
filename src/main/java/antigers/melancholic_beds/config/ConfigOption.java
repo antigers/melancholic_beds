@@ -7,8 +7,6 @@ import dev.isxander.yacl3.api.controller.ControllerBuilder;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.server.permissions.Permission;
-import net.minecraft.server.permissions.PermissionLevel;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -68,7 +66,7 @@ class ConfigOption<T, U> {
     public static boolean getPlayerHasPermission() {
         var client = Minecraft.getInstance();
         var player = client.player;
-        return client.isSingleplayer() || player == null || player.permissions().hasPermission(new Permission.HasCommandLevel(PermissionLevel.GAMEMASTERS));
+        return client.isSingleplayer() || player == null || player.hasPermissions(2);
     }
 
     protected void setValueToDefault() {

@@ -31,9 +31,10 @@
 	],
 	"depends": {
 		"fabricloader": "*",
-		"minecraft": "~26.1",
-		"java": ">=25",
+		"minecraft": "1.21.1",
+		"java": ">=21",
 		"fabric-api": "*",
 		"yet_another_config_lib_v3": "*"
-	}
+	},
+	"accessWidener": "melancholic_beds.accesswidener"
 }
