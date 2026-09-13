@@ -18,7 +18,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "melancholic_beds:white_wool_from_string"
+        "recipes": "melancholic_beds:white_wool_from_string"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

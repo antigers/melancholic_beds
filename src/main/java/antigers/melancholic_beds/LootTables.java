@@ -19,7 +19,7 @@ public class LootTables {
 	private static void modifySheepDrops(LootContext context, List<ItemStack> drops) {
 		if (
 				MelancholicConfig.sheepRequireShears()
-						&& context.getOptionalParameter(LootContextParams.THIS_ENTITY) instanceof Sheep
+						&& context.getOptional(LootContextParams.THIS_ENTITY) instanceof Sheep
 						// the following checks that sheep died and wasn't sheared
 						&& context.hasParameter(LootContextParams.DAMAGE_SOURCE)
 		) {

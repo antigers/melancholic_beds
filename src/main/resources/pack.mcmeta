@@ -1,0 +1,19 @@
+{
+    "pack": {
+        "min_format": 121.0,
+        "max_format": 150.0,
+        "description": "Melancholic Beds"
+    },
+    "filter": {
+        "block": [
+            {
+                "namespace": "minecraft",
+                "path": "recipe/white_wool_from_string.json"
+            },
+            {
+                "namespace": "minecraft",
+                "path": "advancement/recipes/building_blocks/white_wool_from_string.json"
+            }
+        ]
+    }
+}
